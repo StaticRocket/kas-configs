@@ -1,0 +1,53 @@
+header:
+  version: 13
+
+distro: arago
+
+repos:
+  meta-arago:
+    url: "https://git.yoctoproject.org/meta-arago"
+    layers:
+      meta-arago-distro:
+      meta-arago-extras:
+  meta-qt5:
+    url: "https://github.com/meta-qt5/meta-qt5"
+  meta-virtualization:
+    url: "https://git.yoctoproject.org/meta-virtualization"
+  meta-openembedded:
+    url: "https://git.openembedded.org/meta-openembedded"
+    layers:
+      meta-networking:
+      meta-python:
+      meta-oe:
+      meta-gnome:
+      meta-filesystems:
+  meta-ti:
+    url: "https://git.yoctoproject.org/meta-ti"
+    layers:
+      meta-ti-extras:
+      meta-ti-bsp:
+  meta-arm:
+    url: "https://git.yoctoproject.org/meta-arm"
+    layers:
+      meta-arm:
+      meta-arm-toolchain:
+  oe-core:
+    url: "https://git.openembedded.org/openembedded-core"
+    layers:
+      meta:
+
+bblayers_conf_header:
+  standard: |
+    POKY_BBLAYERS_CONF_VERSION = "2"
+    BBPATH = "${TOPDIR}"
+    BBFILES ?= ""
+
+local_conf_header:
+  standard: |
+    CONF_VERSION = "2"
+
+  debug-tweaks: |
+    EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+
+  package_ipk: |
+    PACKAGE_CLASSES = "package_ipk"

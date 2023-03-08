@@ -1,0 +1,11 @@
+header:
+  version: 13
+  includes:
+    - include/arago.yml
+
+defaults:
+  repos:
+    refspec: "master"
+
+machine: am62xx-evm
+target: tisdk-default-image
